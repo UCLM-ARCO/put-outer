@@ -3,6 +3,8 @@
 (new-type {quality} {thing})
 (new-type {status} {quality})
 
+(new-indv {inoperative} {status})
+
 ;; ----------------------- SWITCHABLE ELEMENTS
 (new-type {on device} {device})
 (new-type {off device} {device})
