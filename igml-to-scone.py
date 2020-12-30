@@ -41,6 +41,9 @@ class Parser(Ice.Application):
             self.new_indv(lamp.id, 'lamp')
             self.new_indv(lamp.duality, 'action range')
             self.x_is_a_y_of_z(lamp.duality, 'action range', lamp.id)
+
+            logical_location = self.igml_model.getCellofPosition("topology", lamp.position)
+            self.x_is_a_y_of_z(logical_location, 'logical location', lamp.id)
     
     def parse_boundaries(self):
         boundaries = self.igml_model.getCellSpaceBoundaries('topology')
@@ -93,7 +96,7 @@ class Parser(Ice.Application):
         def find_dual_entity(dual_entity, entities):
             for entity in entities:
                 if entity.id == dual_entity:
-                    return entity.duality
+                    return entity.duality if entity.duality else 'unknown'
 
         transitions = self.igml_model.getTransitions('topology')
         states = self.igml_model.getStates('topology')
