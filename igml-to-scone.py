@@ -40,10 +40,10 @@ class Parser(Ice.Application):
         for lamp in lamps:
             self.new_indv(lamp.id, 'lamp')
             self.new_indv(lamp.duality, 'action range')
-            self.x_is_a_y_of_z(lamp.duality, 'action range', lamp.id)
+            self.x_is_the_y_of_z(lamp.duality, 'action range', lamp.id)
 
             logical_location = self.igml_model.getCellofPosition("topology", lamp.position)
-            self.x_is_a_y_of_z(logical_location, 'logical location', lamp.id)
+            self.x_is_the_y_of_z(logical_location, 'logical location', lamp.id)
     
     def parse_boundaries(self):
         boundaries = self.igml_model.getCellSpaceBoundaries('topology')
@@ -87,7 +87,7 @@ class Parser(Ice.Application):
             self.new_indv(cell.id, entity_type)
 
             if usage:
-                self.x_is_a_y_of_z(usage, 'room usage', cell.id)
+                self.x_is_the_y_of_z(usage, 'room usage', cell.id)
 
         for cell in cells:
             parse_adjacency(cell)
@@ -113,8 +113,8 @@ class Parser(Ice.Application):
     def new_is_a(self, id, entity_type):
         self.file.write('(new-is-a {%s} {%s})\n' % (id, entity_type))
 
-    def x_is_a_y_of_z(self, x, y, z):
-        self.file.write('(x-is-a-y-of-z {%s} {%s} {%s})\n' % (x, y, z))
+    def x_is_the_y_of_z(self, x, y, z):
+        self.file.write('(x-is-the-y-of-z {%s} {%s} {%s})\n' % (x, y, z))
     
     def new_statement(self, a, relation, b, c):
         statement = ('(new-statement {%s} {%s} {%s}' % (a, relation, b))
