@@ -15,8 +15,14 @@ run-model-service:
 
 run-scone-wrapper:
 	sleep 1
+	cd $(PROJECT_DIR); \
 	gnome-terminal -x sh -c \
 	"scone-wrapper --Ice.Config=$(PROJECT_DIR)/example/servers.config; bash"
+
+run-lighter:
+	$(PROJECT_DIR)/lighter.py "IgmlLayer1 -t -e 1.1:tcp -h localhost -p 9090 -t 60000" \
+	"scone -t -e 1.1:tcp -h localhost -p 5001 -t 60000" \
+	20.7497820401 25.4139172166 0.0
 
 parse-model: run-model-service
 	sleep 1
