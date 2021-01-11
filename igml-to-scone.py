@@ -68,7 +68,7 @@ class Parser(Ice.Application):
             # R1 is adjacent to R2 and viceversa. It's necessary to know if
             # already exists a relation in any direction
             for adj_cell_id in adj_cells_ids:
-                boundary_ids = self.igml_model.getCellSpaceBoundariesBetweenCells(adj_cell_id, cell.id)
+                boundary_ids = self.igml_model.getBoundariesBetweenCells(adj_cell_id, cell.id)
 
                 for boundary_id in boundary_ids:
                     self.new_statement(cell.id, 'is adjacent to', adj_cell_id, boundary_id)
