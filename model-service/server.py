@@ -58,7 +58,7 @@ class IgmlLayerI(UrbanService.IgmlLayer):
 
         return adjacentCells
 
-    def getCellSpaceBoundariesBetweenCells(self, referenceCellID1, referenceCellID2, current=None):
+    def getBoundariesBetweenCells(self, referenceCellID1, referenceCellID2, current=None):
         cellSpaceBoundariesID = []
         cellSpace1 = self.model.getCellreference(referenceCellID1)
         cellSpace2 = self.model.getCellreference(referenceCellID2)
@@ -113,6 +113,14 @@ class IgmlLayerI(UrbanService.IgmlLayer):
         z_roof_coord = surfaces[0].linearRing[0].z
 
         return z_roof_coord - z_base_coord
+    
+    def getBoundary(self, boundary_id, current=None):
+        boundaries = self.model.cellSpaceBoundaries.values()
+
+        for boundary in boundaries:
+            if boundary.id == boundary_id:
+                return boundary
+        return None
 
     def getExits(self, referenceCellID, current=None):
         exits = []
