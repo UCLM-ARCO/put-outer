@@ -15,7 +15,7 @@ from shapely.geometry import Point
 from scipy.spatial import KDTree
 
 import Ice
-Ice.loadSlice(path.get_project_dir('.') + '/UrbanService.ice')
+Ice.loadSlice(path.get_project_dir('.') + '/model-service/UrbanService.ice')
 import UrbanService
 
 

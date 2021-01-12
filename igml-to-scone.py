@@ -8,7 +8,7 @@ import Ice
 
 from commodity import path
 
-Ice.loadSlice(path.get_project_dir('.') + '/UrbanService.ice')
+Ice.loadSlice(path.get_project_dir('.') + '/model-service/UrbanService.ice')
 import UrbanService
 
 boundary_types = ['virtual boundary', 'door', 'window', 'wall']

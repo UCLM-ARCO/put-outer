@@ -10,7 +10,7 @@ from commodity import path
 Ice.loadSlice(
     '-I /usr/share/slice /usr/share/slice/dharma/scone-wrapper.ice --all')
 from Semantic import SconeServicePrx
-Ice.loadSlice(path.get_project_dir('.') + '/UrbanService.ice')
+Ice.loadSlice(path.get_project_dir('.') + '/model-service/UrbanService.ice')
 from UrbanService import position3D, IgmlLayerPrx
 
 
@@ -85,8 +85,6 @@ class Lighter(Ice.Application):
         return navigable_boundaries
     
     def navigables_in_range(self, navigable_ids, lamp):
-        valid_navigable_ids = []
-
         if navigable_ids[0] == "space":
             return True
 
@@ -97,10 +95,9 @@ class Lighter(Ice.Application):
                 surface_centroid = self.surface_centroid(surface)
                 
                 if self.is_point_in_range(lamp, surface_centroid):
-                    valid_navigable_ids.append(navigable)
-                    break
+                    return True
 
-        return True if valid_navigable_ids else False
+        return False
     
     def surface_centroid(self, surface):
             point_1 = surface.linearRing[0]
@@ -121,10 +118,11 @@ class Lighter(Ice.Application):
         boundaries = []
         
         for relation in relations:
-            # In the Scone parser two relations for the same are parsed:
-            # R1 is adjacent to R2 and viceversa. It's necessary to know
-            # if already exists that relation in any direction. Two next
-            # lines will be innecesary when this problem has been fixed.
+            # FIXME: In the parser, two statements to represent the same
+            # relation are parsed: R1 is adjacent to R2 and viceversa.
+            # It's necessary to consider if already exists a relation of
+            # this type in any direction or parse this as a symmetric
+            # relation.
             element = self.get_rel_element('c', relation)
 
             if element not in boundaries:

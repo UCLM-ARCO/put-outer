@@ -10,7 +10,7 @@ from shapely.geometry import Point
 
 from IndoorGMLreader import IndoorGMLreader
 
-Ice.loadSlice(path.get_project_dir('.') + '/UrbanService.ice')
+Ice.loadSlice(path.get_project_dir('.') + '/model-service/UrbanService.ice')
 import UrbanService
 
 
