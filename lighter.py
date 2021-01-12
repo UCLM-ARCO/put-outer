@@ -85,21 +85,7 @@ class Lighter(Ice.Application):
         return navigable_boundaries
     
     def navigables_in_range(self, navigable_ids, lamp):
-        if navigable_ids[0] == "space":
-            return True
-
-        for navigable_id in navigable_ids:
-            navigable = self.IgmlLayer.getBoundary(navigable_id)
-
-            for surface in navigable.geometry.surfaces:
-                surface_centroid = self.surface_centroid(surface)
-                
-                if self.is_point_in_range(lamp, surface_centroid):
-                    return True
-
-        return False
-    
-    def surface_centroid(self, surface):
+        def surface_centroid(surface):
             point_1 = surface.linearRing[0]
 
             for i in range(1, len(surface.linearRing)):
@@ -112,6 +98,18 @@ class Lighter(Ice.Application):
             centroid_y = (float(point_1.y) + float(point_2.y)) / 2
 
             return position3D(centroid_x, centroid_y, float(0))
+
+        if navigable_ids[0] == "space":
+            return True
+
+        for navigable_id in navigable_ids:
+            navigable = self.IgmlLayer.getBoundary(navigable_id)
+
+            for surface in navigable.geometry.surfaces:
+                if self.is_point_in_range(lamp, surface_centroid(surface)):
+                    return True
+
+        return False
     
     def adjacency_boundaries(self, cell_1, cell_2):
         relations = self.relations_between_cells(cell_1, cell_2, "is adjacent to")
