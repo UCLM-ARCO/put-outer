@@ -3,7 +3,7 @@
 echo "=================================================="
 echo "      pike.esi.uclm.es ----> sources.list"
 echo "=================================================="
-sudo apt-key adv --fetch-keys https://uclm-arco.github.io/debian/key.asc
+sudo wget -P /etc/apt/trusted.gpg.d https://uclm-arco.github.io/debian/uclm-arco.asc
 echo "deb https://uclm-arco.github.io/debian/ sid main" | sudo tee /etc/apt/sources.list.d/arco.list
 sudo apt update
 
