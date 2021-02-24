@@ -11,13 +11,13 @@ setup: clean \
 run-model-service:
 	sleep 1
 	gnome-terminal -x sh -c \
-	"$(PROJECT_DIR)/model-service/server.py model.gml --Ice.Config=servers.config; bash"
+	"$(PROJECT_DIR)/model-service/server.py model.gml --Ice.Config=$(PROJECT_DIR)/examples/servers.config; bash"
 
 run-scone-wrapper:
 	sleep 1
 	cd $(PROJECT_DIR); \
 	gnome-terminal -x sh -c \
-	"scone-wrapper --Ice.Config=$(PROJECT_DIR)/examples/01/servers.config; bash"
+	"scone-wrapper --Ice.Config=$(PROJECT_DIR)/examples/servers.config; bash"
 
 run-lighter:
 	$(PROJECT_DIR)/lighter.py "IgmlLayer1 -t -e 1.1:tcp -h localhost -p 9090 -t 60000" \
