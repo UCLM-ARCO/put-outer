@@ -3,7 +3,7 @@
 
 PROJECT_DIR := $(shell get-project-dir)
 
-start-up: clean \
+setup: clean \
 		parse-model \
 		prepare-knowledge \
 		run-scone-wrapper
@@ -17,7 +17,7 @@ run-scone-wrapper:
 	sleep 1
 	cd $(PROJECT_DIR); \
 	gnome-terminal -x sh -c \
-	"scone-wrapper --Ice.Config=$(PROJECT_DIR)/example/servers.config; bash"
+	"scone-wrapper --Ice.Config=$(PROJECT_DIR)/examples/01/servers.config; bash"
 
 run-lighter:
 	$(PROJECT_DIR)/lighter.py "IgmlLayer1 -t -e 1.1:tcp -h localhost -p 9090 -t 60000" \
@@ -29,19 +29,17 @@ parse-model: run-model-service
 	$(PROJECT_DIR)/igml-to-scone.py \
 	"IgmlLayer1 -t -e 1.1:tcp -h localhost -p 9090 -t 60000"
 
-src-clean:
-	$(RM) $(PROJECT_DIR)/scone-knowledge.d/04-model.lisp
-	$(RM) $(PROJECT_DIR)/scone-knowledge.d/05-init.lisp
-	$(RM) -r $(PROJECT_DIR)/.scone
-	$(RM) -r $(PROJECT_DIR)/example/.scone
-	$(RM) -r $(PROJECT_DIR)/model-service/__pycache__
-
-clean: src-clean
-	$(RM) $(PROJECT_DIR)/example/model.lisp
+clean:
+	cd $(PROJECT_DIR); \
+	$(RM) -r \
+	scone-knowledge.d/04-model.lisp scone-knowledge.d/05-init.lisp \
+	examples/01/.scone examples/01/model.lisp \
+	model-service/__pycache__ \
+	.scone \
 
 prepare-knowledge:
-	ln -s $(PROJECT_DIR)/example/model.lisp $(PROJECT_DIR)/scone-knowledge.d/04-model.lisp
-	ln -s $(PROJECT_DIR)/example/init.lisp $(PROJECT_DIR)/scone-knowledge.d/05-init.lisp
+	ln -s $(PROJECT_DIR)/examples/01/model.lisp $(PROJECT_DIR)/scone-knowledge.d/04-model.lisp;
+	ln -s $(PROJECT_DIR)/examples/01/init.lisp $(PROJECT_DIR)/scone-knowledge.d/05-init.lisp
 
 run-sbcl:
 	sbcl --load scone-start.lisp
