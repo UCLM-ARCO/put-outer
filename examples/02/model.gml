@@ -1156,7 +1156,7 @@
             </cellSpaceMember>
             <cellSpaceBoundaryMember>
                 <CellSpaceBoundary gml:id="D2">
-                    <gml:description>Usage=Door</gml:description>
+                    <gml:description>Usage=Door/Material=Glass</gml:description>
                     <gml:name>D2</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <duality xlink:href="#T2" />
@@ -1178,7 +1178,7 @@
             </cellSpaceBoundaryMember>
             <cellSpaceBoundaryMember>
                 <CellSpaceBoundary gml:id="D3">
-                    <gml:description>Usage=Door</gml:description>
+                    <gml:description>Usage=Door/Material=Glass</gml:description>
                     <gml:name>D3</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <duality xlink:href="#T3" />
@@ -1200,7 +1200,7 @@
             </cellSpaceBoundaryMember>
             <cellSpaceBoundaryMember>
                 <CellSpaceBoundary gml:id="D4">
-                    <gml:description>Usage=Door</gml:description>
+                    <gml:description>Usage=Door/Material=Glass</gml:description>
                     <gml:name>D4</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <duality xlink:href="#T4" />
@@ -1222,7 +1222,7 @@
             </cellSpaceBoundaryMember>
             <cellSpaceBoundaryMember>
                 <CellSpaceBoundary gml:id="D1">
-                    <gml:description>Usage=Door</gml:description>
+                    <gml:description>Usage=Door/Material=Wood</gml:description>
                     <gml:name>D1</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <duality xlink:href="#T1" />
