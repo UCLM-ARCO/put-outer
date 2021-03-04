@@ -42,4 +42,4 @@ prepare-knowledge:
 	ln -s $(PROJECT_DIR)/examples/01/init.lisp $(PROJECT_DIR)/scone-knowledge.d/05-init.lisp
 
 run-sbcl:
-	sbcl --load scone-start.lisp
+	sbcl --load $(PROJECT_DIR)/examples/scone-start.lisp
