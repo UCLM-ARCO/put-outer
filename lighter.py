@@ -37,12 +37,12 @@ class Lighter(Ice.Application):
 
             for lamp in lamps:
                 if not self.valid_lamp(lamp):
-                    break
+                    continue
 
                 navigable_ids = self.navigables_between_cells(cell, self.target_cell)
 
                 if not navigable_ids or not self.navigables_in_range(navigable_ids, lamp):
-                    break
+                    continue
 
                 valid_lamps.append(lamp)
 
