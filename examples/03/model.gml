@@ -110,7 +110,7 @@
                     </Geometry3D>
                     <duality xlink:href="#R1.2_STATE" />
                     <partialboundedBy xlink:href="#CB6" />
-                    <partialboundedBy xlink:href="#CB7" />
+                    <partialboundedBy xlink:href="#D1" />
                     <partialboundedBy xlink:href="#CB8" />
                 </CellSpace>
             </cellSpaceMember>
@@ -312,7 +312,7 @@
                         </gml:Solid>
                     </Geometry3D>
                     <duality xlink:href="#R2_STATE" />
-                    <partialboundedBy xlink:href="#CB9" />
+                    <partialboundedBy xlink:href="#D2" />
                     <partialboundedBy xlink:href="#CB6" />
                 </CellSpace>
             </cellSpaceMember>
@@ -858,6 +858,7 @@
             </cellSpaceMember>
             <cellSpaceBoundaryMember>
                 <CellSpaceBoundary gml:id="CB6">
+                    <gml:description>Material=Gypsum</gml:description>
                     <gml:name>CB6</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <geometry3D>
@@ -877,8 +878,9 @@
                 </CellSpaceBoundary>
             </cellSpaceBoundaryMember>
             <cellSpaceBoundaryMember>
-                <CellSpaceBoundary gml:id="CB7">
-                    <gml:name>CB7</gml:name>
+                <CellSpaceBoundary gml:id="D1">
+                    <gml:description>Usage=Door/Material=Wood</gml:description>
+                    <gml:name>D1</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <duality xlink:href="#T2" />
                     <geometry3D>
@@ -899,6 +901,7 @@
             </cellSpaceBoundaryMember>
             <cellSpaceBoundaryMember>
                 <CellSpaceBoundary gml:id="CB8">
+                    <gml:description>Usage=Virtual boundary</gml:description>
                     <gml:name>CB8</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <duality xlink:href="#T3" />
@@ -919,8 +922,9 @@
                 </CellSpaceBoundary>
             </cellSpaceBoundaryMember>
             <cellSpaceBoundaryMember>
-                <CellSpaceBoundary gml:id="CB9">
-                    <gml:name>CB9</gml:name>
+                <CellSpaceBoundary gml:id="D2">
+                    <gml:description>Usage=Door/Material=Wood</gml:description>
+                    <gml:name>D2</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <duality xlink:href="#T1" />
                     <geometry3D>
@@ -1022,7 +1026,7 @@
                                 <weight>1.0</weight>
                                 <connects xlink:href="#R2_STATE" />
                                 <connects xlink:href="#R1.1_STATE" />
-                                <duality xlink:href="#CB9" />
+                                <duality xlink:href="#D2" />
                                 <geometry>
                                     <gml:LineString gml:id="LS1">
                                         <gml:pos>8.4377091321 11.8140816214 0.0</gml:pos>
@@ -1039,7 +1043,7 @@
                                 <weight>1.0</weight>
                                 <connects xlink:href="#R1.2_STATE" />
                                 <connects xlink:href="#OUTSIDE" />
-                                <duality xlink:href="#CB7" />
+                                <duality xlink:href="#D1" />
                                 <geometry>
                                     <gml:LineString gml:id="LS2">
                                         <gml:pos>33.2796368523 11.7798941606 0.0</gml:pos>
