@@ -16,6 +16,8 @@
 ;;(new-statement {open door} {is navigable by} {user})
 (new-statement {open element} {is navigable by} {light})
 
+(new-statement {virtual boundary} {is navigable by} {light})
+
 (new-statement {glass element} {is navigable by} {light})
 (new-not-statement {wood element} {is navigable by} {light})
 (new-not-statement {gypsum element} {is navigable by} {light})

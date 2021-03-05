@@ -40,9 +40,7 @@
         :symmetric t)
 
 (new-relation {is connected to}
-          :a-inst-of {cell}
-          :b-inst-of {cell}
-          :c-inst-of {boundary})
+        :parent {is adjacent to})
 
 ;; ----------------------- LOCATIONS
 

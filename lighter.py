@@ -113,6 +113,7 @@ class Lighter(Ice.Application):
     
     def adjacency_boundaries(self, cell_1, cell_2):
         relations = self.relations_between_cells(cell_1, cell_2, "is adjacent to")
+        relations += self.relations_between_cells(cell_1, cell_2, "is connected to")
         boundaries = []
         
         for relation in relations:
