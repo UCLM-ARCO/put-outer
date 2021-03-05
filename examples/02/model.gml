@@ -1244,6 +1244,7 @@
             </cellSpaceBoundaryMember>
             <cellSpaceBoundaryMember>
                 <CellSpaceBoundary gml:id="CB29">
+                    <gml:description>Material=Glass</gml:description>
                     <gml:name>CB29</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <geometry3D>
@@ -1265,6 +1266,7 @@
             </cellSpaceBoundaryMember>
             <cellSpaceBoundaryMember>
                 <CellSpaceBoundary gml:id="CB30">
+                    <gml:description>Material=Glass</gml:description>
                     <gml:name>CB30</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <geometry3D>
@@ -1285,6 +1287,7 @@
             </cellSpaceBoundaryMember>
             <cellSpaceBoundaryMember>
                 <CellSpaceBoundary gml:id="CB31">
+                    <gml:description>Material=Glass</gml:description>
                     <gml:name>CB31</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <geometry3D>
@@ -1306,6 +1309,7 @@
             </cellSpaceBoundaryMember>
             <cellSpaceBoundaryMember>
                 <CellSpaceBoundary gml:id="CB32">
+                    <gml:description>Material=Glass</gml:description>
                     <gml:name>CB32</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <geometry3D>
@@ -1326,6 +1330,7 @@
             </cellSpaceBoundaryMember>
             <cellSpaceBoundaryMember>
                 <CellSpaceBoundary gml:id="CB33">
+                    <gml:description>Material=Gypsum</gml:description>
                     <gml:name>CB33</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <geometry3D>
@@ -1346,6 +1351,7 @@
             </cellSpaceBoundaryMember>
             <cellSpaceBoundaryMember>
                 <CellSpaceBoundary gml:id="CB34">
+                    <gml:description>Material=Gypsum</gml:description>
                     <gml:name>CB34</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <geometry3D>
@@ -1366,6 +1372,7 @@
             </cellSpaceBoundaryMember>
             <cellSpaceBoundaryMember>
                 <CellSpaceBoundary gml:id="CB46">
+                    <gml:description>Material=Gypsum</gml:description>
                     <gml:name>CB46</gml:name>
                     <gml:boundedBy xsi:nil="true" />
                     <geometry3D>
