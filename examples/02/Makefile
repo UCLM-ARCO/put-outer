@@ -22,13 +22,13 @@ run-scone-wrapper:
 	gnome-terminal -x sh -c \
 	"scone-wrapper --Ice.Config=$(PROJECT_DIR)/examples/servers.config; bash"
 
-run-lighter-t1:
-	$(PROJECT_DIR)/lighter.py "IgmlLayer1 -t -e 1.1:tcp -h localhost -p 9090 -t 60000" \
+find-lights-t1:
+	$(PROJECT_DIR)/light-finder.py "IgmlLayer1 -t -e 1.1:tcp -h localhost -p 9090 -t 60000" \
 	"scone -t -e 1.1:tcp -h localhost -p 5001 -t 60000" \
 	13.660130719 12.7062706271 0.0
 
-run-lighter-t2:
-	$(PROJECT_DIR)/lighter.py "IgmlLayer1 -t -e 1.1:tcp -h localhost -p 9090 -t 60000" \
+find-lights-t2:
+	$(PROJECT_DIR)/light-finder.py "IgmlLayer1 -t -e 1.1:tcp -h localhost -p 9090 -t 60000" \
 	"scone -t -e 1.1:tcp -h localhost -p 5001 -t 60000" \
 	35.1960784314 12.7062706271 0.0
 

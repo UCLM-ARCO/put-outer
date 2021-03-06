@@ -14,7 +14,7 @@ Ice.loadSlice(path.get_project_dir('.') + '/model-service/UrbanService.ice')
 from UrbanService import position3D, IgmlLayerPrx
 
 
-class Lighter(Ice.Application):
+class LightFinder(Ice.Application):
     def run(self, argv):
         self.IgmlLayer = self.get_service(argv[1], IgmlLayerPrx)
         self.scone = self.get_service(argv[2], SconeServicePrx)
@@ -194,4 +194,4 @@ class Lighter(Ice.Application):
         return proxy_object
 
 
-sys.exit(Lighter().main(sys.argv))
+sys.exit(LightFinder().main(sys.argv))
