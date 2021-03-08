@@ -1,6 +1,9 @@
 #!/usr/bin/make -f
 # -*- mode:makefile -*-
 
+# target 1: 13.3269107258 12.4670184697 0.0
+# target 2: 36.9942196532 12.5329815303 0.0
+
 PROJECT_DIR := $(shell get-project-dir)
 
 setup: clean \
@@ -19,10 +22,15 @@ run-scone-wrapper:
 	gnome-terminal -x sh -c \
 	"scone-wrapper --Ice.Config=$(PROJECT_DIR)/examples/servers.config; bash"
 
-find-lights:
+find-lights-t1:
 	$(PROJECT_DIR)/light-finder.py "IgmlLayer1 -t -e 1.1:tcp -h localhost -p 9090 -t 60000" \
 	"scone -t -e 1.1:tcp -h localhost -p 5001 -t 60000" \
-	32.5058769716 11.8764124928 0.0
+	13.3269107258 12.4670184697 0.0
+
+find-lights-t2:
+	$(PROJECT_DIR)/light-finder.py "IgmlLayer1 -t -e 1.1:tcp -h localhost -p 9090 -t 60000" \
+	"scone -t -e 1.1:tcp -h localhost -p 5001 -t 60000" \
+	36.9942196532 12.5329815303 0.0
 
 parse-model: run-model-service
 	sleep 1
@@ -33,13 +41,13 @@ clean:
 	cd $(PROJECT_DIR); \
 	$(RM) -r \
 	scone-knowledge.d/04-model.lisp scone-knowledge.d/05-init.lisp \
-	examples/02/.scone examples/03/model.lisp \
+	examples/04/.scone examples/04/model.lisp \
 	model-service/__pycache__ \
 	.scone \
 
 prepare-knowledge:
-	ln -s $(PROJECT_DIR)/examples/03/model.lisp $(PROJECT_DIR)/scone-knowledge.d/04-model.lisp;
-	ln -s $(PROJECT_DIR)/examples/03/init.lisp $(PROJECT_DIR)/scone-knowledge.d/05-init.lisp
+	ln -s $(PROJECT_DIR)/examples/04/model.lisp $(PROJECT_DIR)/scone-knowledge.d/04-model.lisp;
+	ln -s $(PROJECT_DIR)/examples/04/init.lisp $(PROJECT_DIR)/scone-knowledge.d/05-init.lisp
 
 run-sbcl:
 	sbcl --load $(PROJECT_DIR)/examples/scone-start.lisp
